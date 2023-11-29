@@ -11,6 +11,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
+//check the server response
 app.get("/", async (req, res) => {
   res.send("book sphere server is running");
 });
