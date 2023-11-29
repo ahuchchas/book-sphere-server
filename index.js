@@ -32,6 +32,15 @@ async function run() {
         res.status(500).send("something is wrong! can't get books");
       }
     });
+    app.get("/book/:id", async (req, res) => {
+      try {
+        const query = { _id: req.params.id };
+        const book = books.findOne(query);
+        res.json(book);
+      } catch (error) {
+        res.status(500).send("something is wrong! can't get book");
+      }
+    });
 
     //add book
     app.post("/books/add", async (req, res) => {
