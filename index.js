@@ -21,7 +21,7 @@ async function run() {
     const database = client.db("book-sphere");
     const books = database.collection("books");
 
-    //get books
+    //get all books
     app.get("/books/:user", async (req, res) => {
       try {
         const query = { user: req.params.user };
@@ -32,6 +32,7 @@ async function run() {
         res.status(500).send("something is wrong! can't get books");
       }
     });
+    //get single book
     app.get("/book/:id", async (req, res) => {
       try {
         const query = { _id: req.params.id };
